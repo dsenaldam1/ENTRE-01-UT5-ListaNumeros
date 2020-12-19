@@ -83,8 +83,17 @@ public class ListaNumeros
      * Si la lista está vacía devuelve ""
      */
     public String toString() {
-
-        return "";
+        String texto = "";
+        if(!estaVacia()){
+            for(int i = 0; i < pos; i++){
+                texto += String.format("%8d",lista[i]);               
+            }
+            texto += "\n";
+            for(int i = 0; i < pos; i++){
+                texto += String.format("%8d",i);
+            }
+        }
+        return texto;
     }
 
     /**
@@ -101,11 +110,15 @@ public class ListaNumeros
      *  
      */
     public int[] buscarPosicionesDe(int numero) {
-
-        return null;
+        int[] posiciones = new int[pos];
+        for (int i = 0; i < lista.length; i++) {
+            if (lista[i] == numero) {
+                return posiciones;
+            }
+        }
+        return posiciones;
 
     }
-
     /**
      * Hace una búsqueda binaria del numero indicado devolviendo -1 si no se
      * encuentra o la posición en la que aparece
@@ -118,16 +131,24 @@ public class ListaNumeros
      * 
      */
     public int buscarBinario(int numero) {
-
-        return 0;
-
+        int[] copia = new int[lista.length];
+        System.arraycopy(lista, 0,copia, 0, pos);
+        Arrays.sort(copia);
+        int index = Arrays.binarySearch(copia, numero);
+        if(index < 0){
+            return -1;
+        }   
+        return index;
     }
 
     /**
      * borra el primer elemento de la lista
      */
-    public void borrarPrimero() {
-
+    public void borrarPrimero() {        
+        if(pos != 0 ){
+            System.arraycopy(lista, 1,lista, 0, pos - 1);
+            pos--;
+        }
     }
 
     /**
