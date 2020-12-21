@@ -111,14 +111,17 @@ public class ListaNumeros
      */
     public int[] buscarPosicionesDe(int numero) {
         int[] posiciones = new int[pos];
+        int posPosicion = 0;
         for (int i = 0; i < lista.length; i++) {
             if (lista[i] == numero) {
-                return posiciones;
+                posiciones[posPosicion]=i;
+                posPosicion++;
             }
         }
         return posiciones;
 
     }
+
     /**
      * Hace una búsqueda binaria del numero indicado devolviendo -1 si no se
      * encuentra o la posición en la que aparece
@@ -161,6 +164,15 @@ public class ListaNumeros
      *  
      */
     public void invertir(int n) {
+        int[] inversion = new int[pos];
+        int posinver = 0;
+        for (int i = n; i <= pos; i++) {
+            for (int j=i; j>=i ;j--) {
+                inversion[posinver]=i;
+                posinver++;
+            }
+        }
+        System.arraycopy(inversion, 0, lista, 0, posinver);
 
     }
 
