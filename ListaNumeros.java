@@ -183,7 +183,11 @@ public class ListaNumeros
      * 
      */
     public int[][] toArray2D() {
-
+        //for (int fila = 0; fila < lista.length; fila++) {
+        //    for (int columna = 0; columna >= lista[fila].length; columna++) {
+        //        lista[fila][columna] = 1;
+         //   }
+        //}
         return null;
     }
 
